@@ -2,9 +2,12 @@
 using namespace std;
 class Number
 {
-	int a=0;
+	int a;
 	public:
-	Number(){  a =9;}
+	Number()
+	{  
+		a = 9;
+	}
 	Number(int num)
 	{
 		cout << "constructor\n";
@@ -13,6 +16,8 @@ class Number
 	Number(Number &obj)
 	{
 		cout << "copy constructor\n";
+		obj.a=100;
+		cout << "Number3333 :" << obj.a << endl;
 		a=obj.a;
 	}
 	void display()
@@ -28,7 +33,7 @@ int main()
 	y.display();
 	z.display();
 	
-	// copy constructor 
+	// copy constructor
 	Number z1(x);
 	z1.display();// z1 resembling x
 	Number z2(z);
