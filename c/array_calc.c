@@ -1,12 +1,10 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 struct Calculator
 {
-	int (*fp1)(int,int);
-	int (*fp2)(int,int);
+	int (*fp1[3])(int,int);
 	int (*fp3)(int,int,int);
-	int (*fp4)(int,int);
+	
 	
 };
 enum Options
@@ -38,10 +36,10 @@ int main()
 	struct Calculator calc;
 	enum Options op;
 	int result,a,b,c;
-	calc.fp1 = add;
-	calc.fp2 = sub;
+	calc.fp1[] = {add,sub,div};
+	//calc.fp2 = sub;
 	calc.fp3 = mul;
-	calc.fp4 = divi;
+	//calc.fp4 = divi;
 	printf("1.ADD\n2.SUBTRACT\n3.MULTIPLY\n4.DIVISION\nEnter choice:\n");
 	scanf("%d",&op);
 	switch(op)
@@ -49,14 +47,14 @@ int main()
 		case ADDITION:
 		printf("Enter a,b:");
 		scanf("%d %d",&a,&b);
-		result = calc.fp1(a,b);
+		result = calc.fp1[0](a,b);
 		printf("Add:%d\n",result);
 		break;
 		
 		case SUBTRACT:
 		printf("Enter a,b:");
 		scanf("%d %d",&a,&b);
-		result = calc.fp2(a,b);
+		result = calc.fp1[1](a,b);
 		printf("Sub:%d\n",result);
 		break;
 		
@@ -70,7 +68,7 @@ int main()
 		case DIVISION:
 		printf("Enter a,b:");
 		scanf("%d %d",&a,&b);
-		result = calc.fp4(a,b);
+		result = calc.fp1[2](a,b);
 		printf("Div:%d\n",result);
 		break;
 	

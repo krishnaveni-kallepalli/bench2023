@@ -1,6 +1,6 @@
 
 //base class and is re-defined (overridden) by a derived class
-/*
+
 #include<iostream>
 using namespace std;
 

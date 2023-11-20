@@ -2,7 +2,6 @@
 using namespace std;
 class fun
 {
-public:
 	fun()
 	{
 		cout << "Function\n";
