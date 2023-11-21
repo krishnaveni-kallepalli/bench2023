@@ -1,0 +1,7 @@
+A destructor is a special member function of a class that is called if an object of that class gets out of scope
+Object memory getting released.
+The destructor will be called automatically when an object is no longer in scope
+    Destructors have the same name as the class, but with a tilde () before it.
+    Destructors don't take arguments and don't give them back.
+    
+
