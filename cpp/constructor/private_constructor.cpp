@@ -10,7 +10,7 @@ class Private
 	public:// public static function to create instance
 	static Private constructor()
 	{
-		return Private();
+		Private();
 	}
 };
 int main()

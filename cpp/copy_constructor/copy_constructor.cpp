@@ -6,23 +6,23 @@ class Number
 	public:
 	Number()
 	{  
-		a = 9;
+		a = 10;
 	}
 	Number(int num)
 	{
 		cout << "constructor\n";
 		a=num;
+		a = a+10;
 	}
 	Number(Number &obj)
 	{
 		cout << "copy constructor\n";
-		obj.a=100;
-		cout << "Number3333 :" << obj.a << endl;
+		cout << "Number :" << obj.a << endl;
 		a=obj.a;
 	}
 	void display()
 	{
-		cout << "Number :" << a << endl;
+		cout << "Val of a :" << a << endl;
 	}
 };
 int main()
@@ -33,10 +33,12 @@ int main()
 	y.display();
 	z.display();
 	
+	
 	// copy constructor
 	Number z1(x);
 	z1.display();// z1 resembling x
-	Number z2(z);
+	Number z2 = z;
 	z2.display();// z2 resembling z
-	return 0;  
+	return 0;
+
 }

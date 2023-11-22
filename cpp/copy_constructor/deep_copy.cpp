@@ -15,6 +15,7 @@ class Con
 		a=obj.a;
 		ptr = new int ;
 		*ptr = *(obj.ptr);
+		//cout << ptr << endl;
 	}
 	
 	void data(int x, int y)
@@ -28,7 +29,7 @@ class Con
 void Con :: display()
 {
 	cout << a<< endl;
-	cout << *ptr<< endl;
+	//cout << ptr<< endl;
 }
 
 int main()
@@ -37,4 +38,6 @@ int main()
 	obj.data(2,3);
 	Con obj2(obj);
 	obj2.display();
+	cout << obj.ptr << endl;
+	cout << obj2.ptr << endl;
 } 

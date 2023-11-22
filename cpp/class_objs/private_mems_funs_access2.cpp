@@ -23,6 +23,5 @@ class myclass
 int main()
 {
 	myclass &obj = myclass :: copy_constructor(23);
-	cout << obj.a << endl;
 	return 0;
 }

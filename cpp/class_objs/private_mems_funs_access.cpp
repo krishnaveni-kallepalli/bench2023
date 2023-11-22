@@ -18,7 +18,7 @@ class myclass
 	}
 	static myclass constructor()
 	{
-		return myclass();
+		myclass();
 	}
 };
 

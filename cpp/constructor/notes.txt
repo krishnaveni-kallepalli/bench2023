@@ -1,0 +1,35 @@
+Constructor in C++ 
+
+A special method that is invoked automatically at the time of object creation.
+It is used to initialize the data members of new objects generally.
+
+The constructor in C++ has the same name as the class 
+
+Constructor is a member function of a class, whose name is same as the class name
+
+Constructor do not return value, hence they do not have a return type.
+
+
+EXAMPLE  
+
+
+Types :
+
+default 
+parameterized -> Overloaded constructor, Constructor with default value
+copy 
+
+
+EXAMPLE 
+
+
+Constructors are mostly declared in the public section for easy access.
+
+Constructors can be overloaded.
+
+
+Over loading :
+Constructor overloading means having more than one constructor with the same name. 
+
+A Copy constructor is an overloaded constructor used to declare and initialize an object from another object.
+It initializes an object by copying the values from another object passed as a reference
