@@ -2,37 +2,40 @@
 using namespace std;
 class A
 {
-	
+	int y =22;
+	protected:
+	int z =2;
 	public:
-	A()
-	{
-		cout << "A Constructor\n";
-	}
+	int x=23;
 	void func()
 	{
-		cout << "Fun\n";
+		cout << "Fun A\n";
+		cout << "In class A:" << x << endl;
 	}
 };
-class B : private A
+class B : private A 
 {
 	public:
-	B()
-	{
-		cout << "B Constructor\n";
-	}
 	void fun()
 	{
-		cout << "FunB\n";
+		func();
+		cout << "Fun B\n";
+		cout << "In class B:" << x << endl;
+		x = x+5;
+		func();
+		cout << z << endl;
+		//cout << y;
 	}
 };
 
 int main()
 {
-	A a;
-	a.func();
-	
+
 	B b;
 	b.fun();
-	b.func(); // ERROR -- > cannot access A is private 
+	//b.func(); // ERROR -- > cannot access A is private 
+	// cannot modify / hiding data .
+	A a;	
+	a.func();
 	
 }
