@@ -1,0 +1,38 @@
+Encoding is the process of compressing and changing the format of raw video content to a digital file or format.
+Decoding is the process of decoding or uncompressing encoded video in real-time.
+Encoded video stream is given to display.
+
+Components:
+	frame - A single image.
+	framerate - no.of frames captured per sec.
+	refresh rate - no.of time your screen is getting refreshed.
+	Aspect ratio- w and h of frame
+	Resolution - no.of pixels contained in each frame.
+	meta data - info like when video is created -- > name, loc, date of uplaod.
+
+
+codec - compress/uncompress data to reduce the file size to maintain video quality.
+		tx and rx data and reduce the file size and improve quality of video acc to fmt.
+		H264, H265, VP8, VP9.
+		H264 : encode high-quality video at lower bit rate
+		Invented by MPEG
+		bitrate:
+			720p		3Mbps
+			1080p		6Mbps
+			2160p/4K	25Mbps
+		Applications:
+
+protolols - method of streaming a video where we can transmit and recieve data.
+		http - web based.    Eg.YouTube
+		rtsp - server based. Eg.Udemy
+		hls  - live stream.  Eg.Cricket
+		
+container - place where we can store the audio and video 
+container fmts - mp4, avi, webm 
+
+
+frame drop - no.of frames lost.
+
+issues
+
+
