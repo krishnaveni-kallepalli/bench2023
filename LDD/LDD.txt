@@ -1,0 +1,74 @@
+Linux Architecture:
+	User space - user program & application code (C) is executed.
+	Kernel space - system interface, Device driivers -- > prvides services 
+	
+Linux Kernel Modules : pieces of code that can be loaded and unloaded into the kernel
+
+loadable kernel modules (LKM) :  loading codes at runtime
+base kernel : located in the /boot directory and is always loaded when we boot our machine
+LKM communicate with the base kernel to complete their functions.
+
+	separate address spaces
+	higher execution privileges
+	do not execute sequentially
+	use different header files
+	
+	
+	
+	
+LKM applications are-
+
+    Device drivers -->	designed for a specific piece of hardware. 
+    					The kernel uses it to communicate with that piece of hardware
+
+    Filesystem drivers -->	storing files and directories and such on disk drives, on network servers, and in other ways. 
+    						For each way, you need a filesystem driver.
+
+    System calls -->	Userspace programs use system calls to get services from the kernel.
+    					Eg: read a file, create a new process, and shut down the system.
+ 
+LKM Advantages - 
+
+ 	saves time - don’t need to keep rebuilding the kernel every time we add a new device or if we upgrade an old device. 
+ 	
+ 	very flexible - loaded and unloaded with a single line of command
+ 	
+ 	
+ 	
+Module - 
+	code that can be inserted into the kernel at run-time, such as with insmod or modprobe.
+
+Driver - 
+	a bit of code that runs in the kernel to talk to some hardware device.
+
+
+
+
+
+Linux Device Drivers  - application that is designed to enable interaction with hardware devices
+		
+    Character device
+    Block device
+    Network device
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

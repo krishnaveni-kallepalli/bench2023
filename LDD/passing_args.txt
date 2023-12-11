@@ -1,0 +1,67 @@
+Passing Args:
+
+Module Parameters Macros
+
+    module_param()
+    module_param_array()
+    module_param_cb()
+
+Permissions :
+		S_IWUSR
+		S_IRUSR
+		S_IXUSR
+		S_IRGRP
+		S_IWGRP
+		S_IXGRP
+	
+	S_I is a common header.
+	R = read ,W =write ,X= Execute.
+	USR =user ,GRP =Group
+	Using OR ‘|’ (or operation) we can set multiple permissions at a time.
+	
+	
+module_param() : 
+	takes three parameters - name, type, perm
+	creates the sub-directory under /sys/module 
+	include linux/moduleparam.h 
+	modue_param(name,type,perm);
+	
+	Eg:
+	
+	int value =23;
+	module_param(value, int, S_IWUSR|S_IRUSR);
+	This will create a sysfs entry.
+	/sys/module/module_name/parameters/value
+	
+	
+	
+commands :
+
+sudo su
+
+/sys/modules/  - module you created is stored here 
+
+parameters/ - variables defined are stored here 
+
+
+
+
+module_param_array() :
+
+	4 params - name, type, num, prem
+	num is int ot NULL
+	
+	module_param_array(name,type,num,perm);
+	Eg:
+	int a[20];
+	module_param_array(a,int,NULL,S_IRUSR);
+	
+	
+	
+	
+module_param_cb :
+	register the callbacks 
+	when an arg/param changed cb() is called 
+	
+	get a notification whenever the value got to change, 
+	we need to register our handler function to its file operation structure first

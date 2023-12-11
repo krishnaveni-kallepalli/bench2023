@@ -1,0 +1,124 @@
+Module Information
+
+    License
+    Author
+    Module Description
+    Module Version
+
+License : 
+	GPL, or the GNU General Public License
+	open-source	
+
+	MODULE_LICENSE("GPL");
+	MODULE_LICENSE("GPL v2");
+	MODULE_LICENSE("Dual BSD/GPL");
+	
+	
+Author : 
+	who is writing this Linux device driver - “Name <email>” or just “Name”
+	include the Linux/module.h
+	modinfo can show the author’s name for users
+	
+	MODULE_AUTHOR("KRISHNA");
+	
+	
+Module Description :
+	give a description of the module
+	modinfo can show a module description for users
+	
+	MODULE_DESCRIPTION("Basic driver code");
+	
+	
+Module Version : 
+	the version of the module or driver
+	modinfo can show the module version for users
+	[<epoch>:]<version>[-<extra-version>]
+	
+	<epoch> : unsigned integer which allows you to start versions anew
+			If not mentioned, it’s zero
+	<version> : contain only alphanumerics and the character "." 
+	<extraversion> :  inserted for local customizations
+	
+	MODULE_VERSION("2:1.0");
+	
+	
+	
+	
+	
+	
+Simple Kernel Module Programming :
+
+    Init function
+    Exit function
+    
+Init function : 
+	function that will execute first when the Linux device driver is loaded into the kernel
+	allocates memory
+	load the driver using insmod
+	function should register itself by using module_init() macro
+	
+	Syntax : 
+	
+	static int __init fun/mod_name_init(void)
+	{
+		return 0;
+	}
+	module_init(fun_name_init);
+	
+	
+Exit function : 
+	function that will execute last when the Linux device driver is unloaded from the kernel
+	deallocates memory
+	unload the driver using rmmod
+	
+	Syntax: 
+	
+	void __exit fun_name_exit(void)
+	{
+	}
+	module_exit(fun/mod_name_exit);
+
+	
+Printk() :
+	classify messages
+	KERN_EMERG
+	KERN_ALERT
+	KERN_CRIT
+	KERN_ERR
+	KERN_WARNING
+	KERN_NOTICE
+	KERN_INFO
+	KERN_DEBUG
+	
+The difference between printf and printk : 
+
+    Printk():	is a kernel-level function
+    			which has the ability to print out to different log levels as defined in.
+    			We can see the prints using dmesg command.
+    printf(): 	will always print to a file descriptor – STD_OUT. 
+    			We can see the prints in the STD_OUT console.
+
+
+Compiling our driver : 
+	Makefile for your module
+	.ko file generated
+	
+	
+	
+commands : 
+
+Execute makefile	:	make
+Insert module		: 	sudo insmod filename.ko 
+check logs			:	dmesg - check print statements for insert 
+remove module		:	sudo rmmod filename
+check logs			:	dmesg - check print statements for remove 
+check info			:	modinfo filename.ko 
+
+
+
+	
+	
+	
+	
+	
+	
