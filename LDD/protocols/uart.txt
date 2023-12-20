@@ -16,7 +16,7 @@
  Data in UART is transmitted in the form of frames.
  
  
- UART frame format :
+ UART frame format :  
  1.start bit 	- transmitter needs to signal that data bits are coming
  2.data bit 		- 5 to 9 bit / 7 to 8 mostly
  3.Parity bit	- even/odd
