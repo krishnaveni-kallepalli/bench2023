@@ -1,4 +1,5 @@
 #include<stdio.h>
+void 
 int main()
 {
 	int ch,A,B,C,D,none;
@@ -16,4 +17,6 @@ int main()
 		break;
 		default:none ++ ;
 	}
+	
+	
 }

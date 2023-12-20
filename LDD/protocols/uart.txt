@@ -1,0 +1,48 @@
+ Universal Asynchronous Reciever / Transmitter :
+	exchanging serial data between two devices.
+	used for serial communications over a computer or peripheral device serial port
+	Eg: automobiles, smart cards and SIMs.
+	
+ UART is asynchronous :
+ No clock signal to synchronize the output bits from the transmitting device going to the receiving end.
+
+ 1 master 1 slave
+
+ Baud rate : 9600 - 115200 bps i.e transfer speed 
+ 
+ UART :
+ 	simplex 	- (data is sent in one direction only), half-duplex (each side speaks but only one at a time), 
+ 	full-duplex -	(both sides can transmit simultaneously). 
+ Data in UART is transmitted in the form of frames.
+ 
+ 
+ UART frame format :
+ 1.start bit 	- transmitter needs to signal that data bits are coming
+ 2.data bit 		- 5 to 9 bit / 7 to 8 mostly
+ 3.Parity bit	- even/odd
+    In even parity, this bit is set such that the total number of 1s in the frame will be even.
+    In odd parity, this bit is set such that the total number of 1s in the frame will be odd.
+ 4.stop bit 		- top bit indicates the end of user data
+
+
+ Example: 
+
+ Transmitting : 
+ send the capital letter “S” in 7-bit ASCII   1 0 1 0 0 1 1
+
+ We first reverse the order of the bits to put them in least significant bit order  1 1 0 0 1 0 1
+
+
+ Recieving : 
+ 1 0 1 0 0 1 1
+
+
+
+ Two separate shift registers allows a UART to transmit and receive data at the same time.
+ parallel data is converted to serial data sequences.
+ CR1 Control register 
+ 
+ 
+ 
+ 
+ 

@@ -31,6 +31,7 @@ class Linkedlist : public Node
 	void delete_end();
 	void find_middle();
 	void display();
+	void reverse();
 };
 
 void Linkedlist :: insert(int data)
@@ -82,7 +83,19 @@ void Linkedlist :: delete_end()
 		ptr->link = NULL;
 	}
 }
-
+void Linkedlist :: reverse()
+{
+	Node *cur = head;
+	Node *prev = NULL;
+	while(cur!=NULL)
+	{
+		link = cur->link;
+		cur->link = prev;
+		prev = cur;
+		cur = link;
+	}
+	head = prev;	 
+}
 void Linkedlist :: display()
 {
 	cout << "\nDisplay:\n";
@@ -105,7 +118,7 @@ int main()
 	
 	while(1)
 	{
-		cout << "\n1)Insert\n2)Display\n3)Find middle\n4)Delete First\n5)Delete at End\n6)Exit\n\n";
+		cout << "\n1)Insert\n2)Display\n3)Find middle\n4)Delete First\n5)Delete at End\n6)Reverse\n7)Exit\n\n";
 		cout << "Enter choice:";
 		cin >> ch;
 		switch(ch)
@@ -133,6 +146,13 @@ int main()
 			break;
 			
 			case 6:
+			l.display();
+			l.reverse();
+			cout << "After Reversing\n";
+			l.display();
+			break;
+			
+			case 7:
 			exit(0);
 			break;
 			

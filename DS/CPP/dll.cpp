@@ -36,7 +36,10 @@ class Double : public Node
 	void find_middle();
 	void find_mid();
 	void sort_nodes();
-	void count_nodes();
+	int count_nodes();
+	void search();
+	void search_node();
+	void reverse();
 };
 
 void Double :: insert(int data)
@@ -85,7 +88,7 @@ void Double :: find_middle()
 		p = p->next,q = q->next->next;
 	cout << "Middle element :" << p->data<<endl;
 }
-void Double :: count_nodes()
+int Double :: count_nodes()
 {
 	int count = 0;
 	Node *ptr=head;
@@ -94,7 +97,8 @@ void Double :: count_nodes()
 		count ++ ;
 		ptr = ptr->next;
 	}
-	cout << "Count:" << count << endl;
+	//cout << "Count:" << count << endl;
+	return count;
 }
 void Double :: find_mid()
 {
@@ -142,6 +146,52 @@ void Double :: sort_nodes()
 		p1 = p1->next;
 	}
 }
+void Double :: search()
+{
+	int ele,pos=0;
+	cout << "Enter element to search:";
+	cin >> ele;
+	Node *ptr = head;
+	for(ptr = head;ptr->next!=NULL;ptr = ptr->next)
+	{
+		pos++;
+		if(ele == ptr->data)
+			cout << "Found\n";
+		else cout << "Not found\n";
+	}
+	cout << ptr->data << " found at " << pos << endl;
+}
+void Double :: search_node()
+{
+	int pos,position;
+	cout << "Enter node to search:";
+	cin >> pos;
+	position = pos;
+	Node *ptr = head;
+	cout << ptr->data;
+	while(pos!=0)
+	{
+		pos--;
+		ptr = ptr->next;
+	}
+	cout << "Data at pos " << position << " is " << ptr->data << endl;
+}
+void Double :: reverse()
+{
+	//int nodes = count_nodes();
+	Node *cur = head;
+	Node *temp = NULL;
+	while(cur != NULL)
+	{
+		temp = cur->prev;
+		cur->prev = cur->next;
+		cur->next = temp;
+		cur = cur->prev;
+	}
+	if(ptr!=NULL)
+		head = temp->prev;
+
+}
 void Double :: display()
 {
 	Node *ptr = head;
@@ -176,11 +226,11 @@ int main()
 	dll.delete_end();
 	dll.display();
 	
-	int ch,data;
+	int ch,data,x;
 	while(1)
 	{
 		cout << "\n1)Insert\n2)Insert at begin\n3)Delete at begin\n4)Delete at end\n5)Find Middle\n6)Sort\n7)Count\n\
-8)Find mid\n9)Display\n10)Exit\n\n";
+8)Find mid\n9)Search\n10)Display\n11)Search node and print data\n12)reverse\n13)Exit\n\n";
 		cout << "Enter choice:";
 		cin >> ch;
 		switch(ch)
@@ -217,16 +267,32 @@ int main()
 			break;
 			
 			case 7:
-			dll.count_nodes();
-			break;
+			x = dll.count_nodes();
+			cout << "Count : " << x << endl;
+ 			break;
+			
 			case 8:
 			dll.find_mid();
 			break;
+			
 			case 9:
-			dll.display();
+			dll.search();
 			break;
 			
 			case 10:
+			dll.display();
+			break;
+			
+			case 11:
+			dll.search_node();
+			break;
+			
+			case 12:
+			dll.reverse();
+			dll.display();
+			break;
+			
+			case 13:
 			cout << "Exit..!\n";
 			exit(0);
 			

@@ -15,6 +15,7 @@ MODULE_VERSION("2:1.0");
 int val = 23;
 int cb_val = 0;
 module_param(val,int,S_IWUSR|S_IRUSR);
+
 int notify_param()
 const struct kernel_param_ops param_ops=
 {

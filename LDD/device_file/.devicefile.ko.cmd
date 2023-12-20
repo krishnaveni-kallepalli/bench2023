@@ -1,0 +1,1 @@
+cmd_/home/thundersoft/krishnaveni/LDD/device_file/devicefile.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -z noexecstack   --build-id  -T ./scripts/module-common.lds -o /home/thundersoft/krishnaveni/LDD/device_file/devicefile.ko /home/thundersoft/krishnaveni/LDD/device_file/devicefile.o /home/thundersoft/krishnaveni/LDD/device_file/devicefile.mod.o;  true

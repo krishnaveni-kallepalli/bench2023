@@ -1,0 +1,70 @@
+Serial Peripheral Interface :  synchronous, full duplex main-subnode-based interface
+	interface bus commonly used to send data between microcontrollers and small peripherals 
+	Eg: shift registers, sensors, and SD cards.
+Lines :
+	SCLK - serial clock
+	MOSI MISO - data lines
+	CS - control select 
+ It uses separate clock and data lines, along with a chip select line to choose the device you wish to talk to.
+ 
+ Data transfer SPEED : upto 60Mbps
+ output clock frequency : upto 50 MHz
+ 
+ SPI is a full-duplex interface 
+ both main and subnode can send data at the same time - MOSI and MISO 
+ 
+ Synchronus :
+ transmits and receives information simultaneously with high data transfer rates
+ 
+ Device that generates the clock signal is called the main
+ Data transmitted between the main and the subnode
+ 
+ 
+ consists 1 main and can have 1 or multiple subnodes.
+ chip select is used to select subnode
+ 
+ CS is normally an active low signal and is pulled high to disconnect the subnode from the SPI bus
+ 
+ 
+ MOSI and MISO are the data lines
+ MOSI transmits data from the main to the subnode
+ MISO transmits data from the subnode to the main.	
+ 
+ 
+ In daisy-chain mode :	chip select signal 
+ 						all subnodes is tied together 
+ 						data propagates from one subnode to the next. 
+ 						all subnodes receive the same SPI clock at the same time. 
+ The data from the main is directly connected to the first subnode and that subnode provides data to the next subnode and so on.
+ 
+ 
+ In this method, as data is propagated from one subnode to the next.
+ No.of clock cycles required to transmit data is proportional to the subnode position in the daisy chain.
+ 
+ clk : 
+ clock polarity - CPOL
+ clock phase - CPHA
+ 
+ can be 0 or 1
+ 4 modes
+ CPOL	CPHA   CLK
+  0		 0		raise to falling edge
+  0		 1 		falling to raise
+  1		 0		falling to raise 
+  1		 1		raise to falling 
+ 
+ 
+ Transmission :
+ 
+ CS
+ SCLK
+ MOSI
+ MISO
+ Data Frame : 8-bit data 
+ Data format : no.of bits/frame (MSB/LSB), CPOL & CPHA
+ CPOL & CPHA
+ Bit Transfer 
+ Chip deselect 
+ 
+ SPI data frames can be any size from 4-bits to 16-b
+ 

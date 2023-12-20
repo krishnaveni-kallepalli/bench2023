@@ -1,0 +1,1 @@
+cmd_/home/thundersoft/krishnaveni/LDD/major_minor_num/chrdev_static.mod := { echo  /home/thundersoft/krishnaveni/LDD/major_minor_num/chrdev_static.o;  echo; } > /home/thundersoft/krishnaveni/LDD/major_minor_num/chrdev_static.mod
