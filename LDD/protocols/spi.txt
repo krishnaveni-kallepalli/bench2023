@@ -66,5 +66,5 @@ Lines :
  Bit Transfer 
  Chip deselect 
  
- SPI data frames can be any size from 4-bits to 16-b
+ SPI data frames can be any size from 4-bits to 16-bits
  

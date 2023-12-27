@@ -1,0 +1,45 @@
+Inter-Integrated Circuit : 
+	serial communication
+	bi-directional
+	synchronous
+serial communication : 
+	process of sending data one bit at a time, sequentially, over a communication channel or computer bus.
+	
+Lines : 
+	SDA - Serial Data (SDA) – send and receive data.
+	SCL - Serial Clock (SCL) – It carries the clock signal.
+	
+I2C operates in 2 modes –
+
+    Master mode
+    Slave mode
+
+
+Data transmission :
+start			- start data transmission
+Address frame	- 7/10 bits (to identify slave address sent from the master
+read/write bit 	- master is sending data to the slave (low) or requesting data from it (high).
+Acknowledgement - ACK/NACK
+				  address matches, the slave returns an ACK bit , sets SDA line low
+				  address from the master does not match the slave, slave leaves the SDA line high
+Data frame 		- 8 bits 
+				  master sends or receives the data frame
+stop			- stop the data transmission
+
+	_______________________________________________________________________________
+	| start	| Address| R/W | ACK/NACK |	Data | ACK/NACK |	Data | ACK/NACK |stop |
+	|  bit	| Frame	 | bit |	bit	  |Frame |	bit	    |Frame   |	bit	    |bit  |
+	|_______|________|_____|__________|______|__________|________|__________|_____|
+	
+start cond:
+SDA high to low , SCL high to low 
+
+stop cond:
+SCL high , SDA high
+
+ACK :
+	allows the Rx to communicate to the Tx that the byte was successfully received and another byte may be sent
+	
+	
+	
+

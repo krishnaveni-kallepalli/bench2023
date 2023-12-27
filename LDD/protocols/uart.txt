@@ -23,8 +23,10 @@
     In even parity, this bit is set such that the total number of 1s in the frame will be even.
     In odd parity, this bit is set such that the total number of 1s in the frame will be odd.
  4.stop bit 		- top bit indicates the end of user data
-
-
+	________________________________
+	| start | data | parity | stop |
+	|__bit__|_bit__|__bit___|_bit__|
+	
  Example: 
 
  Transmitting : 
