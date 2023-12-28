@@ -9,7 +9,7 @@ steps:
     Create IOCTL command in a Userspace application
     Use the IOCTL system call in a Userspace
  
-IO_op(operations):
+IO_commands:
 	“IO“: an ioctl with no parameters
 	“IOW“: an ioctl with write parameters (copy_from_user)
 	“IOR“: an ioctl with read parameters (copy_to_user)
@@ -19,7 +19,7 @@ IO_op(operations):
 1.Create IOCTL command in the driver :
 
 		linux/ioctl.h 
-		#define <name> __<IO_op>("Magic num","cmd num","arg(data) type")
+		#define <name> _<IOcmd>("Magic num","cmd num","arg(data) type")
 		
 	Eg: #define WR_VALUE _IOW('a','a',int32_t*)
 
