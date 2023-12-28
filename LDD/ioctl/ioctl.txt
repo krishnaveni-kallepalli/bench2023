@@ -1,0 +1,57 @@
+ioctl : 
+	Input output control
+	Communicate between the Userspace and Kernel Space,
+	
+steps:
+	
+    Create IOCTL command in the driver
+    Write the IOCTL function in the driver
+    Create IOCTL command in a Userspace application
+    Use the IOCTL system call in a Userspace
+ 
+IO_op(operations):
+	“IO“: an ioctl with no parameters
+	“IOW“: an ioctl with write parameters (copy_from_user)
+	“IOR“: an ioctl with read parameters (copy_to_user)
+	“IOWR“: an ioctl with both write and read parameters    
+	
+	
+1.Create IOCTL command in the driver :
+
+		linux/ioctl.h 
+		#define <name> __<IO_op>("Magic num","cmd num","arg(data) type")
+		
+	Eg: #define WR_VALUE _IOW('a','a',int32_t*)
+
+2.Write the IOCTL function in the driver:
+	int  ioctl(struct inode *inode,struct file *file,unsigned int cmd,unsigned long arg) 
+
+3.Create IOCTL command in a Userspace application
+	#define WR_VALUE _IOW('a','a',int32_t*)
+	
+4. Use IOCTL System Call in Userspace:
+		long ioctl( "file descriptor","ioctl command","Arguments");
+	Eg:	ioctl(fd, WR_VALUE, (int32_t*) &number); 
+	
+	
+	
+	
+IOCTL is used to perform specific operations on device drivers that are not covered by standard system calls
+Allows user-space apps to send control cmds to the kernel-space driver and retrieve information or modify device behavior. 
+
+
+IOCTL can pass multiple arguments between user-space and kernel-space. 
+
+pass multiple arguments:
+	create a structure that contains all the necessary variables p
+	pass the address of the structure as an argument in the IOCTL command.
+	
+	
+Alternative Methods to communicate btw usr space and kernel space:	
+	
+Procfs, Sysfs, Configfs, Debugfs, Sysctl, UDP Sockets, and Netlink Sockets. 
+	
+	
+	
+	
+	

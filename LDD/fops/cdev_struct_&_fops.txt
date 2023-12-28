@@ -1,0 +1,45 @@
+If we want to open, read, write, and close we need to register some structures to the driver. 
+
+cdev structure : 
+
+inode:	information about the file.
+	struct inode structure is used to represent files.
+	multiple open descriptors on a single file 
+	but they all point to a single inode structure. 
+	inode refers to a char device file
+	
+cdev :
+	cdev structure is useful for writing driver code
+	struct cdev is one of the elements of the inode structure.
+	represents char devices.
+	pointer to that structure
+	
+
+1.file_operation (This we will see after this cdev structure)
+2.owner (This should be THIS_MODULE)
+
+There are two ways of allocating and initializing one of these structures.
+
+    Runtime Allocation
+    Own allocation
+    
+initialize : cdev_init
+add : cdev_add  - adds chedev to system
+
+fops : 
+	defined in <linux/fs.h>
+	read,write,open,release,ioctl.
+	
+	open : 
+	static int etx_open(struct inode *inode, struct file *file);
+	release:
+	static int etx_close(struct inode *inode, struct file *file);
+	read:
+	static ssize_t etx_read(struct file *file,char __user *buf, size_t len, loff *off);
+	write:
+	static ssize_t etx_write(struct file *file,const char __user *buf,size_t len,loff *off);
+	
+	
+	
+ioctl : system call offers a way to issue device-specific commands
+		Communicate between the Userspace and Kernel Space using ioctl calls 
