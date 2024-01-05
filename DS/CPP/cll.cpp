@@ -47,7 +47,7 @@ void Circular :: insert(int data)
 	{
 		head = newnode;
 		newnode->link = head;
-	}
+	}	
 	else
 	{
 		while(ptr->link!= head)

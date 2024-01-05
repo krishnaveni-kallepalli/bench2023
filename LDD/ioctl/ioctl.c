@@ -125,7 +125,7 @@ void __exit fun_exit(void)
 	device_destroy(dev_class,dev);
 	cdev_del(&etx_cdev);
 	unregister_chrdev_region(dev,1);
-	pr_info("Remnoved...\n");
+	pr_info("Removed...\n");
 }
 
 module_init(fun_init);	
