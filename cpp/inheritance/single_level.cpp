@@ -12,7 +12,7 @@ class one
 		cout << x << endl;
 	}
 };
-class two : public one 
+class two : private one 
 {
 	public:
 	two()

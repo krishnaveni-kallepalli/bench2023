@@ -15,15 +15,57 @@ MODULE_DESCRIPTION("Practice all\n");
 
 dev_t dev = 0;
 static struct class *dev_class;
-struct class cdev etx_cdev;
+
+static struct cdev etx_cdev;
+
+
+static int etx_open(struct inode *inode ,struct file *file);
+static int etx_release(struct inode *inode , struct file *file);
+static ssize_t etx_read(struct file *file,char __user *buf, size_t len,loff_t *off);
+static ssize_t etx_write(struct file *file, const char __user *buf, size_t len,loff_t *off);
+
+
+static struct file_operations fops=
+{
+	.open = etx_open,
+	.release = etx_release,
+	.owner = THIS_MODULE,
+	.read = etx_read,
+	.write = etx_write,
+};
+
+static int etx_open(struct inode *inode, struct file *file)
+{
+	pr_info("open..!\n");
+	return 0;
+}
+static int etx_release(struct inode *inode,struct file *file)
+{
+	pr_info("Release..\n");
+	return 0;
+}
+static ssize_t etx_read(struct file *file, char __user *buf, size_t len,loff_t *off)
+{
+	pr_info("Read...\n");
+	return 0;
+}
+static ssize_t etx_write(struct file *file,const char __user *buf,size_t len,loff_t *off)
+{
+	pr_info("Write..\n");
+	return len;
+}
 static int __init fun_init(void)
 {
 	if(alloc_chrdev_region(&dev,0,1,"chrdev_2")<0)
 		pr_info("Cannot alloc maj & min no\n");
 		printk("%d %d",MAJOR(dev),MINOR(dev));
 		
-	cdev_init(&cdev,&fops);
-	if(IS_ERR(cdev_add(
+	cdev_init(&etx_cdev,&fops);
+	if(cdev_add(&etx_cdev,dev,1)<0)
+	{
+		pr_info("Cannot add to system\n");
+		goto r_class;
+	}
 	
 	dev_class = class_create(THIS_MODULE,"etx_class");
 	if(IS_ERR(dev_class))
@@ -38,10 +80,12 @@ static int __init fun_init(void)
 	}
 	pr_info("Module Inserted Successfully\n");
 	return 0;
-	r_class : class_destroy(dev_class);
+	
+	r_class : 
+		class_destroy(dev_class);
 	r_device:
-	unregister_chrdev_region(dev,1);
-	return -1;
+		unregister_chrdev_region(dev,1);
+		return -1;
 }
 static void __exit fun_exit(void)
 {

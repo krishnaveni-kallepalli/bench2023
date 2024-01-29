@@ -46,7 +46,7 @@ static ssize_t etx_read(struct file *file,char __user *buf,size_t len,loff_t *of
 static ssize_t etx_write(struct file *file, const char __user *buf, size_t len,loff_t  *off)
 {
 	pr_info("Write fun....\n");
-	return 0;
+	return len;
 }
 static int __init fun_init(void)
 {

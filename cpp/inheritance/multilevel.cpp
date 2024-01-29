@@ -2,6 +2,7 @@
 using namespace std;
 class A
 {
+	protected : int x;
 	public :
 	A()
 	{

@@ -1,4 +1,4 @@
-obj-m += devicefile.o
+obj-m += manual.o
 
 KDIR = /lib/modules/$(shell uname -r)/build
 
